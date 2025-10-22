@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Travel 'n Unravel | Kerala's Hidden Gems</title>
+  <title>Travel 'n Unravel | Exotic Kerala Escapes</title>
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,493 +14,212 @@
           colors: {
             'kerala-green': '#0b6b4a',
             'kerala-gold': '#f6c84c',
-            'kerala-blue': '#0e83a6',
-            'deep-jungle': '#047857',
+            'kerala-sand': '#fef8e6',
+            'deep-emerald': '#064e3b',
             'text-dark': '#0f172a',
             'accent-yellow': '#fde047'
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            serif: ['Merriweather', 'serif']
+            sans: ['Inter', 'sans-serif'],
+            display: ['Playfair Display', 'serif']
+          },
+          boxShadow: {
+            glow: '0 0 25px rgba(246,200,76,0.35)',
           }
         }
       }
-    };
+    }
   </script>
-
-  <!-- Google fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Small custom additions for nicer visuals */
-    .glass {
-      background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.55));
-      backdrop-filter: blur(8px) saturate(120%);
+    /* subtle page fade-in */
+    body { opacity: 0; animation: fadeIn 1.2s ease-in forwards; background-color:#fafaf9; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* shimmer wave overlay */
+    .tropical-overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
+      opacity: 0.25;
+      animation: moveShimmer 30s linear infinite;
     }
-    .fade-up {
-      transform: translateY(12px);
-      opacity: 0;
-      transition: all 600ms cubic-bezier(.2,.9,.2,1);
-    }
-    .fade-up.in-view {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .card-hover:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 18px 40px rgba(10,10,10,0.12);
-    }
-    .text-glow {
-      text-shadow: 0 6px 18px rgba(3, 105, 161, 0.08);
+    @keyframes moveShimmer {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
     }
 
-    /* loader */
-    .lds-ring { display: inline-block; position: relative; width: 26px; height: 26px; }
-    .lds-ring div { box-sizing: border-box; display: block; position: absolute; width: 26px; height: 26px; margin: 0; border: 3px solid #0b6b4a; border-radius: 50%; animation: lds-ring 1.2s cubic-bezier(.5,0,.5,1) infinite; border-color: #0b6b4a transparent transparent transparent; }
-    .lds-ring div:nth-child(1) { animation-delay: -0.45s; }
-    .lds-ring div:nth-child(2) { animation-delay: -0.3s; }
-    .lds-ring div:nth-child(3) { animation-delay: -0.15s; }
-    @keyframes lds-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-    /* make hero text a touch more readable on small screens */
-    @media (max-width:640px) {
-      .hero-title { font-size: 2rem; line-height: 1.05; }
+    /* palm silhouette decoration */
+    .palm-bg {
+      background: url('https://i.imgur.com/oXbFL3f.png') no-repeat bottom right/400px auto;
+      opacity: 0.2;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
     }
+
+    /* fade-up animation */
+    .fade-up { opacity: 0; transform: translateY(15px); transition: all 0.8s cubic-bezier(.2,.9,.2,1); }
+    .fade-up.in-view { opacity: 1; transform: translateY(0); }
   </style>
 </head>
-<body class="bg-gradient-to-b from-white via-slate-50 to-slate-100 text-text-dark antialiased">
+<body class="antialiased text-text-dark">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center gap-3">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-kerala-green text-kerala-gold shadow">
-            <!-- small compass icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <div>
-            <h1 class="text-xl font-extrabold tracking-tight text-kerala-green">Travel 'n Unravel</h1>
-            <p class="text-xs text-gray-500 -mt-0.5">Kerala's Hidden Gems — Offbeat Journeys</p>
-          </div>
-        </div>
-
-        <nav class="hidden md:flex items-center gap-6">
-          <a href="#packages" class="text-sm font-medium text-gray-700 hover:text-kerala-green transition">Packages</a>
-          <a href="#gems" class="text-sm font-medium text-gray-700 hover:text-kerala-green transition">Highlights</a>
-          <a href="#contact" class="text-sm font-medium text-gray-700 hover:text-kerala-green transition">Contact</a>
-          <a href="#packages" class="inline-flex items-center px-4 py-2 rounded-md bg-kerala-gold text-kerala-green font-semibold shadow hover:opacity-95 transition">Book a Tour</a>
-        </nav>
-
-        <!-- mobile menu button -->
-        <div class="md:hidden">
-          <button id="mobile-toggle" aria-label="Toggle menu" class="p-2 rounded-md text-gray-600 hover:bg-gray-100">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-gradient-to-r from-kerala-green/90 via-deep-emerald/90 to-kerala-green/90 backdrop-blur-md shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-kerala-gold flex items-center justify-center text-kerala-green font-bold shadow-glow">T</div>
+        <h1 class="font-display text-xl text-white tracking-wide">Travel <span class="text-kerala-gold">'n</span> Unravel</h1>
       </div>
-    </div>
-
-    <!-- mobile nav -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white/80 backdrop-blur-sm">
-      <div class="px-4 py-3 space-y-1">
-        <a href="#packages" class="block px-2 py-2 rounded text-gray-700 hover:bg-gray-50">Packages</a>
-        <a href="#gems" class="block px-2 py-2 rounded text-gray-700 hover:bg-gray-50">Highlights</a>
-        <a href="#contact" class="block px-2 py-2 rounded text-gray-700 hover:bg-gray-50">Contact</a>
-      </div>
+      <nav class="hidden md:flex space-x-8 text-sm font-semibold">
+        <a href="#packages" class="text-white hover:text-kerala-gold transition">Packages</a>
+        <a href="#gems" class="text-white hover:text-kerala-gold transition">Highlights</a>
+        <a href="#contact" class="text-white hover:text-kerala-gold transition">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-<section class="relative overflow-hidden">
-  <div
-    class="relative h-96 md:h-[520px] flex items-center justify-center bg-cover bg-center"
-    style="background-image: url('kl.jpeg');"
-  >
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
+  <!-- HERO -->
+  <section class="relative tropical-overlay overflow-hidden">
+    <div class="relative h-[600px] bg-cover bg-center flex items-center justify-center"
+      style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/54/Backwaters_in_Kerala.jpg'); background-attachment: fixed;">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"></div>
+      <div class="palm-bg"></div>
 
-    <div class="relative max-w-5xl mx-auto px-6 text-center">
-      <h2 class="hero-title text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
-        Beyond the Postcard. <span class="text-kerala-gold">Into the Wild.</span>
-      </h2>
-      <p class="mt-4 text-lg md:text-xl text-white/90 font-medium">
-        Discover remote trails, secret backwaters, and heritage that the guidebooks miss.
-      </p>
-
-      <div class="mt-8 flex justify-center gap-3">
-        <a
-          href="#packages"
-          class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/90 text-kerala-green font-semibold shadow-lg hover:shadow-xl transition"
-        >
-          Explore Packages
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </a>
-
-        <a
-          href="#contact"
-          class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-kerala-gold text-kerala-green font-semibold shadow-lg hover:shadow-xl transition"
-        >
-          Plan My Trip
-        </a>
+      <div class="relative text-center max-w-4xl px-4">
+        <h2 class="font-display text-5xl md:text-7xl text-white font-bold drop-shadow-xl">
+          Beyond the <span class="text-kerala-gold">Postcard</span>.<br>
+          Into the <span class="text-kerala-gold">Wild.</span>
+        </h2>
+        <p class="mt-5 text-white/90 text-lg md:text-xl font-medium">
+          Wander through Kerala’s emerald jungles, golden coasts, and untold sanctuaries.
+        </p>
+        <div class="mt-10 flex justify-center gap-4">
+          <a href="#packages" class="px-6 py-3 rounded-full bg-white/90 text-kerala-green font-semibold shadow-lg hover:shadow-glow transition">
+            Explore Packages →
+          </a>
+          <a href="#contact" class="px-6 py-3 rounded-full bg-gradient-to-r from-kerala-gold to-yellow-400 text-kerala-green font-semibold shadow-lg hover:shadow-glow transition">
+            Plan My Trip
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- wave divider -->
-  <svg class="w-full -mt-1" viewBox="0 0 1440 40">
-    <path fill="#f8fafc" d="M0,40L1440,0L1440,40L0,40Z"></path>
-  </svg>
-</section>
-
-    <!-- subtle wave divider -->
-    <svg class="w-full -mt-1" viewBox="0 0 1440 40"><path fill="#f8fafc" d="M0,40L1440,0L1440,40L0,40Z"></path></svg>
+    <svg class="w-full -mt-1" viewBox="0 0 1440 60"><path fill="#fafaf9" d="M0,60L1440,0L1440,60L0,60Z"/></svg>
   </section>
 
-  <!-- Packages -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-    <section id="packages" class="py-12">
-      <div class="text-center mb-10">
-        <h3 class="text-3xl md:text-4xl font-bold text-kerala-green">Our Offbeat Kerala Journeys</h3>
-        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Hand-curated trips that avoid crowds and highlight the soul of Kerala — forests, backwaters, and heritage.</p>
-      </div>
+  <!-- PACKAGES -->
+  <section id="packages" class="py-20 bg-kerala-sand relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h3 class="font-display text-4xl text-kerala-green font-bold mb-4 fade-up">Our Exotic Kerala Journeys</h3>
+      <p class="text-gray-700 mb-12 fade-up">Carefully crafted paths that take you from misty hills to tranquil lagoons, far from crowds.</p>
 
-      <div class="grid gap-8 grid-cols-1 md:grid-cols-3">
-        <!-- card 1 -->
-        <article class="fade-up glass rounded-2xl overflow-hidden border border-white/40 p-0 card-hover transform transition-all duration-300">
-          <img src="https://placehold.co/600x400/047857/ffffff?text=Rosemala+Forest" alt="Rosemala Forest" class="w-full h-48 object-cover">
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="fade-up bg-white rounded-2xl shadow-xl hover:shadow-glow overflow-hidden transform hover:-translate-y-1 transition">
+          <img src="https://placehold.co/600x400/047857/ffffff?text=Rosemala+Forest" class="w-full h-48 object-cover">
           <div class="p-6">
-            <h4 class="text-2xl font-semibold text-deep-jungle">Weekend Warrior</h4>
-            <p class="mt-1 text-sm font-medium text-kerala-gold">3 Days / 2 Nights</p>
-            <p class="mt-4 text-gray-700">Short, soulful escapes mixing jungle trails with backwater calm.</p>
-            <ul class="mt-4 space-y-1 text-gray-600 text-sm list-disc list-inside">
-              <li>Jungle trekking in Rosemala</li>
-              <li>Backwater shikara on Munroe Island</li>
-              <li>Beach time at Mararikulam</li>
+            <h4 class="font-display text-2xl text-deep-emerald font-bold">Weekend Warrior</h4>
+            <p class="text-sm text-kerala-gold font-semibold mb-3">3 Days / 2 Nights</p>
+            <p class="text-gray-700 mb-4">Short escapes into Kerala’s forested heartlands and sunlit beaches.</p>
+            <ul class="text-sm text-gray-600 mb-5 list-disc list-inside text-left">
+              <li>Rosemala forest trek</li>
+              <li>Munroe Island backwater ride</li>
+              <li>Mararikulam beach sunset</li>
             </ul>
-            <a href="#contact" class="mt-6 inline-block w-full text-center py-3 rounded-lg bg-kerala-gold text-kerala-green font-semibold hover:opacity-95 transition">Southern Gems for the Weekend</a>
+            <a href="#contact" class="block text-center bg-kerala-gold text-kerala-green font-semibold py-3 rounded-lg hover:shadow-glow transition">Book This Escape</a>
           </div>
-        </article>
+        </div>
 
-        <!-- card 2 -->
-        <article class="fade-up glass rounded-2xl overflow-hidden border border-white/40 p-0 card-hover transform transition-all duration-300">
-          <img src="https://placehold.co/600x400/b45309/ffffff?text=Idukki+Arch+Dam+View" alt="Idukki Dam" class="w-full h-48 object-cover">
+        <div class="fade-up bg-white rounded-2xl shadow-xl hover:shadow-glow overflow-hidden transform hover:-translate-y-1 transition delay-100">
+          <img src="https://placehold.co/600x400/b45309/ffffff?text=Idukki+Arch+Dam+View" class="w-full h-48 object-cover">
           <div class="p-6">
-            <h4 class="text-2xl font-semibold text-deep-jungle">Week-Long Trail</h4>
-            <p class="mt-1 text-sm font-medium text-kerala-green">7 Days / 6 Nights</p>
-            <p class="mt-4 text-gray-700">An immersive week: heritage towns, high-range peaks, and quiet backwaters.</p>
-            <ul class="mt-4 space-y-1 text-gray-600 text-sm list-disc list-inside">
-              <li>Heritage of Kodungallur & Irinjalakuda</li>
-              <li>Idukki Arch Dam viewpoints</li>
-              <li>Gavi eco-tours & Kumarakom backwaters</li>
+            <h4 class="font-display text-2xl text-deep-emerald font-bold">Week-Long Trail</h4>
+            <p class="text-sm text-kerala-green font-semibold mb-3">7 Days / 6 Nights</p>
+            <p class="text-gray-700 mb-4">A cultural and natural deep dive — temples, dams, forests, and backwaters.</p>
+            <ul class="text-sm text-gray-600 mb-5 list-disc list-inside text-left">
+              <li>Kodungallur heritage walk</li>
+              <li>Idukki dam viewpoints</li>
+              <li>Gavi eco-experience</li>
             </ul>
-            <a href="#contact" class="mt-6 inline-block w-full text-center py-3 rounded-lg bg-kerala-green text-white font-semibold hover:opacity-95 transition">7-Days Week Tour</a>
+            <a href="#contact" class="block text-center bg-kerala-green text-white font-semibold py-3 rounded-lg hover:shadow-glow transition">Reserve Your Trail</a>
           </div>
-        </article>
+        </div>
 
-        <!-- card 3 -->
-        <article class="fade-up glass rounded-2xl overflow-hidden border border-white/40 p-0 card-hover transform transition-all duration-300">
-          <img src="https://placehold.co/600x400/0369a1/ffffff?text=Silent+Valley+National+Park" alt="Silent Valley" class="w-full h-48 object-cover">
+        <div class="fade-up bg-white rounded-2xl shadow-xl hover:shadow-glow overflow-hidden transform hover:-translate-y-1 transition delay-200">
+          <img src="https://placehold.co/600x400/0369a1/ffffff?text=Silent+Valley+National+Park" class="w-full h-48 object-cover">
           <div class="p-6">
-            <h4 class="text-2xl font-semibold text-deep-jungle">Fortnight Frontier</h4>
-            <p class="mt-1 text-sm font-medium text-kerala-blue">14 Days / 13 Nights</p>
-            <p class="mt-4 text-gray-700">Explore North to South — forts, jungles, and remote high-ranges.</p>
-            <ul class="mt-4 space-y-1 text-gray-600 text-sm list-disc list-inside">
-              <li>Bekal Fort & Ranipuram trekking</li>
-              <li>Silent Valley safaris</li>
-              <li>Nelliyampathy & Parambikulam nature stays</li>
+            <h4 class="font-display text-2xl text-deep-emerald font-bold">Fortnight Frontier</h4>
+            <p class="text-sm text-kerala-blue font-semibold mb-3">14 Days / 13 Nights</p>
+            <p class="text-gray-700 mb-4">Traverse Kerala’s full length — northern forts to southern coasts.</p>
+            <ul class="text-sm text-gray-600 mb-5 list-disc list-inside text-left">
+              <li>Bekal Fort & Ranipuram trek</li>
+              <li>Silent Valley safari</li>
+              <li>Parambikulam nature stay</li>
             </ul>
-            <a href="#contact" class="mt-6 inline-block w-full text-center py-3 rounded-lg bg-kerala-blue text-white font-semibold hover:opacity-95 transition">14-Days Grand Tour</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Hidden Gems Highlight Section -->
-    <section id="gems" class="py-12 bg-gradient-to-b from-slate-50 to-white rounded-xl mt-6">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
-          <h3 class="text-2xl md:text-3xl font-bold text-kerala-green">Featured Offbeat Destinations</h3>
-          <p class="mt-2 text-gray-600">A taste of what awaits — all quiet, all unforgettable.</p>
-        </div>
-
-        <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          <div class="fade-up glass p-5 rounded-xl shadow card-hover">
-            <p class="text-lg font-semibold text-kerala-gold">Rosemala, Kollam</p>
-            <p class="mt-2 text-sm text-gray-700">Remote valley trails and viewpoints reached by jeep — a pilgrimage for trekkers.</p>
-          </div>
-          <div class="fade-up glass p-5 rounded-xl shadow card-hover">
-            <p class="text-lg font-semibold text-kerala-gold">Silent Valley N.P., Palakkad</p>
-            <p class="mt-2 text-sm text-gray-700">Pristine evergreen forests and rare wildlife (guided access only).</p>
-          </div>
-          <div class="fade-up glass p-5 rounded-xl shadow card-hover">
-            <p class="text-lg font-semibold text-kerala-gold">Gavi Eco-Tourism, Pathanamthitta</p>
-            <p class="mt-2 text-sm text-gray-700">Raw jungle safaris, kayaking and tented stays inside protected reserves.</p>
-          </div>
-          <div class="fade-up glass p-5 rounded-xl shadow card-hover">
-            <p class="text-lg font-semibold text-kerala-gold">Bekal Fort, Kasaragod</p>
-            <p class="mt-2 text-sm text-gray-700">A cinematic shoreline fort — perfect for golden hour photos and calm walks.</p>
+            <a href="#contact" class="block text-center bg-gradient-to-r from-kerala-blue to-sky-500 text-white font-semibold py-3 rounded-lg hover:shadow-glow transition">Begin Grand Journey</a>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Contact & Gemini integration -->
-    <section id="contact" class="py-12">
-      <div class="max-w-3xl mx-auto">
-        <h3 class="text-3xl md:text-4xl font-bold text-kerala-green text-center">Ready to Unravel Kerala?</h3>
-        <p class="text-center text-gray-600 mt-2">Tell us a bit about what you want and we'll draft a short personalized itinerary for you.</p>
-
-        <form id="enquiry-form" class="mt-6 bg-white rounded-2xl p-8 shadow-lg border border-white/40">
-          <div class="grid grid-cols-1 gap-4">
-            <div>
-              <label for="name" class="text-sm font-medium text-gray-700">Full Name</label>
-              <input id="name" name="name" required class="mt-1 block w-full rounded-md border border-gray-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green" />
-            </div>
-
-            <div>
-              <label for="email" class="text-sm font-medium text-gray-700">Email Address</label>
-              <input id="email" name="email" type="email" required class="mt-1 block w-full rounded-md border border-gray-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green" />
-            </div>
-
-            <div>
-              <label for="package" class="text-sm font-medium text-gray-700">Interested Package</label>
-              <select id="package" name="package" class="mt-1 block w-full rounded-md border border-gray-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green">
-                <option>Weekend Warrior (3 Days)</option>
-                <option>Week-Long Trail (7 Days)</option>
-                <option>Fortnight Frontier (14 Days)</option>
-                <option>Custom Query</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message" class="text-sm font-medium text-gray-700">Your Message / Query</label>
-              <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border border-gray-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-kerala-green"></textarea>
-            </div>
-
-            <div class="flex gap-3">
-              <button type="button" id="draft-itinerary-btn" class="flex-1 inline-flex items-center justify-center gap-3 px-4 py-3 rounded-lg bg-accent-yellow text-text-dark font-semibold shadow hover:opacity-95 transition">
-                <span id="button-text">✨ Draft Personalized Itinerary</span>
-                <div id="loader" class="lds-ring hidden" aria-hidden="true"><div></div><div></div><div></div><div></div></div>
-              </button>
-
-              <button type="submit" class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-kerala-green text-white font-semibold shadow hover:bg-green-700 transition">
-                Send Inquiry
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <!-- Output area for Gemini -->
-        <div id="itinerary-output" class="mt-6 p-6 hidden bg-white rounded-2xl shadow-lg border border-white/40">
-          <h4 class="text-xl font-semibold text-kerala-green">Suggested Itinerary</h4>
-          <div id="itinerary-content" class="mt-3 prose max-w-none text-gray-700"></div>
-
-          <div id="sources-output" class="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-500 hidden">
-            <strong>Grounding Sources:</strong>
-            <ul id="source-list" class="list-disc list-inside mt-2"></ul>
-          </div>
-        </div>
-
-        <div id="status-message" class="mt-4 text-center text-sm text-kerala-green font-semibold hidden">
-          Your inquiry has been received! We will be in touch soon to help you plan your journey.
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="mt-12 bg-slate-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-full bg-kerala-gold flex items-center justify-center text-kerala-green font-bold">T</div>
-        <div>
-          <p class="font-bold">Travel 'n Unravel</p>
-          <p class="text-xs text-white/70">Specializing in Kerala's Offbeat Destinations</p>
-        </div>
-      </div>
-
-      <p class="text-xs text-white/60">© 2024 Travel 'n Unravel · Demo site (static placeholders)</p>
     </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section id="gems" class="relative py-20 bg-gradient-to-b from-kerala-green via-deep-emerald to-kerala-green text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background:url('https://www.transparenttextures.com/patterns/fresh-snow.png');"></div>
+    <div class="max-w-7xl mx-auto px-6 text-center relative">
+      <h3 class="font-display text-3xl md:text-4xl text-kerala-gold font-bold mb-10 fade-up">Featured Hidden Destinations</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="fade-up bg-white/10 rounded-xl p-6 shadow-lg backdrop-blur-sm">
+          <p class="font-display text-lg text-kerala-gold mb-2">Rosemala</p>
+          <p class="text-sm text-gray-100">Valley hidden in Shendurney forest — trek, mist, and silence.</p>
+        </div>
+        <div class="fade-up bg-white/10 rounded-xl p-6 shadow-lg backdrop-blur-sm delay-100">
+          <p class="font-display text-lg text-kerala-gold mb-2">Silent Valley</p>
+          <p class="text-sm text-gray-100">Evergreen paradise of rare wildlife, reached only through guides.</p>
+        </div>
+        <div class="fade-up bg-white/10 rounded-xl p-6 shadow-lg backdrop-blur-sm delay-200">
+          <p class="font-display text-lg text-kerala-gold mb-2">Gavi</p>
+          <p class="text-sm text-gray-100">Forest camp life — kayaking, safaris, and dawn mist mornings.</p>
+        </div>
+        <div class="fade-up bg-white/10 rounded-xl p-6 shadow-lg backdrop-blur-sm delay-300">
+          <p class="font-display text-lg text-kerala-gold mb-2">Bekal</p>
+          <p class="text-sm text-gray-100">Historic sea fort watching sunsets over golden Arabian waves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-kerala-sand">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h3 class="font-display text-4xl text-kerala-green font-bold mb-6">Let's Design Your Journey</h3>
+      <p class="text-gray-700 mb-10">Tell us your dream, and we'll craft the perfect itinerary through Kerala’s hidden luxury.</p>
+
+      <form class="bg-white shadow-xl rounded-2xl p-8">
+        <input type="text" placeholder="Full Name" class="block w-full mb-4 border border-gray-200 rounded-md px-4 py-3 focus:ring-kerala-green focus:border-kerala-green">
+        <input type="email" placeholder="Email Address" class="block w-full mb-4 border border-gray-200 rounded-md px-4 py-3 focus:ring-kerala-green focus:border-kerala-green">
+        <textarea rows="4" placeholder="Tell us what you’d love to see..." class="block w-full mb-6 border border-gray-200 rounded-md px-4 py-3 focus:ring-kerala-green focus:border-kerala-green"></textarea>
+        <button type="submit" class="w-full py-3 rounded-lg bg-gradient-to-r from-kerala-gold to-yellow-400 text-kerala-green font-semibold shadow hover:shadow-glow transition">✨ Get My Plan</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gradient-to-b from-deep-emerald via-kerala-green to-black text-white py-10 text-center">
+    <h4 class="font-display text-kerala-gold text-2xl mb-2">Travel 'n Unravel</h4>
+    <p class="text-white/70 text-sm">Kerala’s Exotic Escapes · Offbeat Luxury Awaits</p>
+    <p class="mt-4 text-xs text-white/40">© 2024 Travel 'n Unravel · Demo site for visual showcase</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // Mobile menu toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileToggle?.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // IntersectionObserver for fade-up animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
       });
     }, { threshold: 0.15 });
-
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // --- GEMINI API INTEGRATION (fixed & improved) ---
-    // NOTE: Set your API key here to make the Draft Itinerary button actually call Gemini.
-    const API_KEY = ""; // <-- insert your API key string here if you want the live call to work
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
-
-    const loader = document.getElementById('loader');
-    const buttonText = document.getElementById('button-text');
-    const itineraryOutput = document.getElementById('itinerary-output');
-    const itineraryContent = document.getElementById('itinerary-content');
-    const sourcesOutput = document.getElementById('sources-output');
-    const sourceList = document.getElementById('source-list');
-    const draftButton = document.getElementById('draft-itinerary-btn');
-
-    // Exponential backoff wrapper for fetch
-    async function fetchWithRetry(url, options = {}, maxRetries = 5) {
-      for (let attempt = 0; attempt < maxRetries; attempt++) {
-        try {
-          const res = await fetch(url, options);
-          if (res.status !== 429) return res;
-          // 429 -> wait and retry
-          const delay = Math.pow(2, attempt) * 1000 + Math.random() * 1000;
-          await new Promise(r => setTimeout(r, delay));
-        } catch (err) {
-          const delay = Math.pow(2, attempt) * 1000 + Math.random() * 1000;
-          await new Promise(r => setTimeout(r, delay));
-        }
-      }
-      throw new Error('API request failed after multiple retries.');
-    }
-
-    async function draftItinerary() {
-      const userQuery = document.getElementById('message').value.trim();
-      const selectedPackage = document.getElementById('package').value;
-      const fullQuery = `I am interested in the ${selectedPackage} package. My specific query is: ${userQuery}`;
-
-      if (!userQuery) {
-        itineraryContent.innerHTML = '<p class="text-red-600 font-semibold">Please enter your message or query first!</p>';
-        itineraryOutput.classList.remove('hidden');
-        return;
-      }
-
-      // show loading
-      loader.classList.remove('hidden');
-      buttonText.textContent = 'Drafting Itinerary...';
-      draftButton.disabled = true;
-      itineraryOutput.classList.remove('hidden');
-      itineraryContent.innerHTML = '<p class="text-gray-500 animate-pulse">Loading suggestions from Gemini...</p>';
-      sourcesOutput.classList.add('hidden');
-      sourceList.innerHTML = '';
-
-      const systemPrompt = "You are a friendly, highly knowledgeable Kerala travel consultant specializing in offbeat destinations. Based on the user's query about one of our Kerala tour packages (Weekend Warrior, Week-Long Trail, Fortnight Frontier) or their custom travel needs, draft a polite, personalized, and concise itinerary suggestion or consultation reply. Keep the tone enthusiastic and helpful. Use grounding/search to ensure information about places like Rosemala, Silent Valley, or Gavi is accurate regarding activities (trekking, safari). Respond in English.";
-
-      const payload = {
-        contents: [{ parts: [{ text: fullQuery }] }],
-        systemInstruction: { parts: [{ text: systemPrompt }] },
-        // Note: tools or grounding usage may require additional configuration in your GCP project.
-      };
-
-      try {
-        // If no API key provided, we skip the network call and show a helpful placeholder
-        if (!API_KEY) {
-          itineraryContent.innerHTML = `
-            <p class="font-semibold">Preview Mode — API key not provided.</p>
-            <p class="mt-2">Here’s a static sample suggestion you can use while testing:</p>
-            <div class="mt-3">
-              <strong>Day 1:</strong> Arrive in Kochi, short heritage walk and sunset at Fort Kochi.<br/>
-              <strong>Day 2:</strong> Drive to Munroe Island — backwater shikara and local village walk.<br/>
-              <strong>Day 3:</strong> Rosemala trek in the morning, relax at Mararikulam beach in evening.
-            </div>
-            <p class="mt-3 text-sm text-gray-500">To enable live suggestions, add your Generative Language API key into the JS variable <code>API_KEY</code>.</p>
-          `;
-          sourcesOutput.classList.add('hidden');
-          return;
-        }
-
-        const response = await fetchWithRetry(API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-          const text = await response.text();
-          throw new Error(`API error ${response.status}: ${text}`);
-        }
-
-        const result = await response.json();
-        const candidate = result.candidates?.[0];
-
-        if (candidate && candidate.content?.parts?.[0]?.text) {
-          let text = candidate.content.parts[0].text;
-          itineraryContent.innerHTML = text.replace(/\n/g, '<br>');
-
-          // Extract grounding attributions if present
-          const groundingMetadata = candidate.groundingMetadata;
-          let sources = [];
-          if (groundingMetadata && groundingMetadata.groundingAttributions) {
-            try {
-              sources = groundingMetadata.groundingAttributions
-                .map(a => ({ uri: a.web?.uri, title: a.web?.title }))
-                .filter(s => s.uri || s.title);
-            } catch (e) {
-              sources = [];
-            }
-          }
-
-          if (sources.length > 0) {
-            sourceList.innerHTML = sources.map(s => `<li><a href="${s.uri || '#'}" target="_blank" rel="noopener noreferrer" class="hover:underline text-kerala-blue">${s.title || s.uri}</a></li>`).join('');
-            sourcesOutput.classList.remove('hidden');
-          } else {
-            sourcesOutput.classList.add('hidden');
-          }
-        } else {
-          itineraryContent.innerHTML = '<p class="text-red-600 font-semibold">Sorry, no suggestion was generated. Please try again.</p>';
-        }
-
-      } catch (error) {
-        console.error('Gemini API Error:', error);
-        itineraryContent.innerHTML = `<p class="text-red-600 font-semibold">API Error: ${error.message}</p>`;
-        sourcesOutput.classList.add('hidden');
-      } finally {
-        loader.classList.add('hidden');
-        buttonText.textContent = '✨ Draft Personalized Itinerary';
-        draftButton.disabled = false;
-      }
-    }
-
-    // Attach event listener
-    draftButton?.addEventListener('click', draftItinerary);
-
-    // Basic client-side form submit behaviour
-    document.getElementById('enquiry-form')?.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const statusMessage = document.getElementById('status-message');
-      statusMessage.classList.remove('hidden');
-      e.target.reset();
-      setTimeout(() => statusMessage.classList.add('hidden'), 5000);
-    });
   </script>
 </body>
 </html>
-
-
-
