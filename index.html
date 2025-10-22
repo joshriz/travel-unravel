@@ -239,4 +239,24 @@
             <input type="email" placeholder="Email Address" class="border border-gray-200 rounded-md px-4 py-3 focus:ring-kerala-green focus:border-kerala-green">
           </div>
           <textarea rows="4" placeholder="Tell us more..." class="border border-gray-200 rounded-md px-4 py-3 w-full mb-6 focus:ring-kerala-green focus:border-kerala-green"></textarea>
-          <button type="submit" class="w-full py-3 rounded-lg bg-gradient-to-r from-kerala-gold to-yellow-400 text-kerala-green font-semibold shadow hover:shadow-glow transition">✨ Send My Request</button
+          <button type="submit" class="w-full py-3 rounded-lg bg-gradient-to-r from-kerala-gold to-yellow-400 text-kerala-green font-semibold shadow hover:shadow-glow transition">✨ Send My Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gradient-to-b from-deep-emerald via-kerala-green to-black text-white py-10 text-center">
+    <h4 class="font-display text-kerala-gold text-2xl mb-2">Travel 'n Unravel</h4>
+    <p class="text-white/70 text-sm">Kerala’s Exotic Escapes · Offbeat Luxury Awaits</p>
+    <p class="mt-4 text-xs text-white/40">© 2024 Travel 'n Unravel · Demo site for visual showcase</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
