@@ -51,14 +51,6 @@
       to { background-position: 1000px 1000px; }
     }
 
-    /* palm silhouette decoration */
-    .palm-bg {
-      background: url('https://i.imgur.com/oXbFL3f.png') no-repeat bottom right/400px auto;
-      opacity: 0.2;
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
 
     /* fade-up animation */
     .fade-up { opacity: 0; transform: translateY(15px); transition: all 0.8s cubic-bezier(.2,.9,.2,1); }
@@ -85,7 +77,7 @@
   <!-- HERO -->
   <section class="relative tropical-overlay overflow-hidden">
     <div class="relative h-[600px] bg-cover bg-center flex items-center justify-center"
-      style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/54/Backwaters_in_Kerala.jpg'); background-attachment: fixed;">
+      style="background-image: url('bg.png')"; background-attachment: fixed;>
       <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"></div>
       <div class="palm-bg"></div>
 
@@ -118,22 +110,21 @@
 
       <div class="grid md:grid-cols-3 gap-10">
         <div class="fade-up bg-white rounded-2xl shadow-xl hover:shadow-glow overflow-hidden transform hover:-translate-y-1 transition">
-          <img src="https://placehold.co/600x400/047857/ffffff?text=Rosemala+Forest" class="w-full h-48 object-cover">
+          <img src="weekend.jpg" class="w-full h-48 object-cover">
           <div class="p-6">
             <h4 class="font-display text-2xl text-deep-emerald font-bold">Weekend Warrior</h4>
-            <p class="text-sm text-kerala-gold font-semibold mb-3">3 Days / 2 Nights</p>
+            <p class="text-sm text-kerala-green font-semibold mb-3">3 Days / 2 Nights</p>
             <p class="text-gray-700 mb-4">Short escapes into Kerala’s forested heartlands and sunlit beaches.</p>
             <ul class="text-sm text-gray-600 mb-5 list-disc list-inside text-left">
-              <li>Rosemala forest trek</li>
+              <li>Rosemala forest trek</li>                                   
               <li>Munroe Island backwater ride</li>
               <li>Mararikulam beach sunset</li>
             </ul>
-            <a href="#contact" class="block text-center bg-kerala-gold text-kerala-green font-semibold py-3 rounded-lg hover:shadow-glow transition">Book This Escape</a>
           </div>
         </div>
 
         <div class="fade-up bg-white rounded-2xl shadow-xl hover:shadow-glow overflow-hidden transform hover:-translate-y-1 transition delay-100">
-          <img src="https://placehold.co/600x400/b45309/ffffff?text=Idukki+Arch+Dam+View" class="w-full h-48 object-cover">
+          <img src="idduke.jpg" class="w-full h-48 object-cover">
           <div class="p-6">
             <h4 class="font-display text-2xl text-deep-emerald font-bold">Week-Long Trail</h4>
             <p class="text-sm text-kerala-green font-semibold mb-3">7 Days / 6 Nights</p>
@@ -143,12 +134,11 @@
               <li>Idukki dam viewpoints</li>
               <li>Gavi eco-experience</li>
             </ul>
-            <a href="#contact" class="block text-center bg-kerala-green text-white font-semibold py-3 rounded-lg hover:shadow-glow transition">Reserve Your Trail</a>
           </div>
         </div>
 
         <div class="fade-up bg-white rounded-2xl shadow-xl hover:shadow-glow overflow-hidden transform hover:-translate-y-1 transition delay-200">
-          <img src="https://placehold.co/600x400/0369a1/ffffff?text=Silent+Valley+National+Park" class="w-full h-48 object-cover">
+          <img src="silent.jpg" class="w-full h-48 object-cover">
           <div class="p-6">
             <h4 class="font-display text-2xl text-deep-emerald font-bold">Fortnight Frontier</h4>
             <p class="text-sm text-kerala-blue font-semibold mb-3">14 Days / 13 Nights</p>
@@ -158,53 +148,106 @@
               <li>Silent Valley safari</li>
               <li>Parambikulam nature stay</li>
             </ul>
-            <a href="#contact" class="block text-center bg-gradient-to-r from-kerala-blue to-sky-500 text-white font-semibold py-3 rounded-lg hover:shadow-glow transition">Begin Grand Journey</a>
-          </div>
+          
         </div>
       </div>
     </div>
+    <br>
+    <br>
+    <div class="flex justify-center">
+      <a href="#contact" class="bg-kerala-gold text-kerala-green font-semibold py-3 px-8 rounded-lg hover:shadow-glow transition">
+        Book Your Escape!
+      </a>
+    </div>
   </section>
 
-  <!-- HIGHLIGHTS -->
   <section id="gems" class="relative py-20 bg-gradient-to-b from-kerala-green via-deep-emerald to-kerala-green text-white overflow-hidden">
-    <div class="absolute inset-0 opacity-10" style="background:url('https://www.transparenttextures.com/patterns/fresh-snow.png');"></div>
-    <div class="max-w-7xl mx-auto px-6 text-center relative">
-      <h3 class="font-display text-3xl md:text-4xl text-kerala-gold font-bold mb-10 fade-up">Featured Hidden Destinations</h3>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="fade-up bg-white/10 rounded-xl p-6 shadow-lg backdrop-blur-sm">
-          <p class="font-display text-lg text-kerala-gold mb-2">Rosemala</p>
-          <p class="text-sm text-gray-100">Valley hidden in Shendurney forest — trek, mist, and silence.</p>
-        </div>
-        <div class="fade-up bg-white/10 rounded-xl p-6 shadow-lg backdrop-blur-sm delay-100">
-          <p class="font-display text-lg text-kerala-gold mb-2">Silent Valley</p>
-          <p class="text-sm text-gray-100">Evergreen paradise of rare wildlife, reached only through guides.</p>
-        </div>
-        <div class="fade-up bg-white/10 rounded-xl p-6 shadow-lg backdrop-blur-sm delay-200">
-          <p class="font-display text-lg text-kerala-gold mb-2">Gavi</p>
-          <p class="text-sm text-gray-100">Forest camp life — kayaking, safaris, and dawn mist mornings.</p>
-        </div>
-        <div class="fade-up bg-white/10 rounded-xl p-6 shadow-lg backdrop-blur-sm delay-300">
-          <p class="font-display text-lg text-kerala-gold mb-2">Bekal</p>
-          <p class="text-sm text-gray-100">Historic sea fort watching sunsets over golden Arabian waves.</p>
+  <div class="absolute inset-0 opacity-10" style="background:url('https://www.transparenttextures.com/patterns/fresh-snow.png');"></div>
+  <div class="max-w-7xl mx-auto px-6 text-center relative">
+    
+    <h3 class="font-display text-4xl md:text-5xl text-kerala-gold font-bold mb-10 fade-up">Featured Hidden Destinations</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <div class="fade-up bg-white/10 rounded-xl shadow-lg backdrop-blur-sm overflow-hidden">
+        <img src="rose.jpg" alt="Rosemala valley" class="w-full h-40 object-cover">
+        <div class="p-6">
+          <p class="font-display text-xl text-kerala-gold mb-2">Rosemala</p>
+          <p class="text-base text-gray-100 leading-relaxed">Valley hidden in Shendurney forest — trek, mist, and silence.</p>
         </div>
       </div>
+
+      <div class="fade-up bg-white/10 rounded-xl shadow-lg backdrop-blur-sm overflow-hidden delay-100">
+        <img src="svp.jpg" alt="Silent Valley national park" class="w-full h-40 object-cover">
+        <div class="p-6">
+          <p class="font-display text-xl text-kerala-gold mb-2">Silent Valley</p>
+          <p class="text-base text-gray-100 leading-relaxed">Evergreen paradise of rare wildlife, reached only through guides.</p>
+        </div>
+      </div>
+
+      <div class="fade-up bg-white/10 rounded-xl shadow-lg backdrop-blur-sm overflow-hidden delay-200">
+        <img src="munroe.avif" alt="Canals of Munroe Island" class="w-full h-40 object-cover">
+        <div class="p-6">
+          <p class="font-display text-xl text-kerala-gold mb-2">Munroe Island</p>
+          <p class="text-base text-gray-100 leading-relaxed">Serene island of canals — gliding through mangroves, misty mornings, and authentic Kerala.</p>
+        </div>
+      </div>
+
+      <div class="fade-up bg-white/10 rounded-xl shadow-lg backdrop-blur-sm overflow-hidden delay-300">
+        <img src="bekal.png" alt="Bekal Fort by the sea" class="w-full h-40 object-cover">
+        <div class="p-6">
+          <p class="font-display text-xl text-kerala-gold mb-2">Bekal Fort</p>
+          <p class="text-base text-gray-100 leading-relaxed">Historic sea fort watching sunsets over golden Arabian waves.</p>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-20 bg-kerala-sand">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <h3 class="font-display text-4xl text-kerala-green font-bold mb-6">Let's Design Your Journey</h3>
-      <p class="text-gray-700 mb-10">Tell us your dream, and we'll craft the perfect itinerary through Kerala’s hidden luxury.</p>
+<!-- CONTACT -->
+<section id="contact" class="relative overflow-hidden bg-gradient-to-br from-kerala-sand via-white to-kerala-sand py-24">
+  <div class="absolute inset-0 opacity-30 bg-[url('https://www.transparenttextures.com/patterns/white-diamond.png')]"></div>
 
-      <form class="bg-white shadow-xl rounded-2xl p-8">
-        <input type="text" placeholder="Full Name" class="block w-full mb-4 border border-gray-200 rounded-md px-4 py-3 focus:ring-kerala-green focus:border-kerala-green">
-        <input type="email" placeholder="Email Address" class="block w-full mb-4 border border-gray-200 rounded-md px-4 py-3 focus:ring-kerala-green focus:border-kerala-green">
-        <textarea rows="4" placeholder="Tell us what you’d love to see..." class="block w-full mb-6 border border-gray-200 rounded-md px-4 py-3 focus:ring-kerala-green focus:border-kerala-green"></textarea>
-        <button type="submit" class="w-full py-3 rounded-lg bg-gradient-to-r from-kerala-gold to-yellow-400 text-kerala-green font-semibold shadow hover:shadow-glow transition">✨ Get My Plan</button>
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6 relative">
+    <!-- Left visual panel -->
+    <div class="relative h-96 md:h-full rounded-3xl overflow-hidden shadow-2xl">
+      <img src="cont.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Kerala Landscape">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-kerala-green/40 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-8 text-white">
+        <h4 class="font-display text-3xl text-kerala-gold mb-2">Let’s Plan Together</h4>
+        <p class="text-white/90 max-w-sm">Share your dream route or just say hello — our travel artisans will design an unforgettable escape for you.</p>
+      </div>
+    </div>
+
+    <!-- Right form panel -->
+    <div class="bg-white rounded-3xl shadow-xl p-10 border-t-4 border-kerala-gold fade-up">
+      <h4 class="font-display text-3xl text-kerala-green mb-4">Start Your Journey</h4>
+      <p class="text-gray-600 mb-8">Tell us about your ideal Kerala adventure.</p>
+
+      <form>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <input type="text" placeholder="Full Name" class="border border-gray-200 rounded-md px-4 py-3 focus:ring-kerala-green focus:border-kerala-green">
+          <input type="email" placeholder="Email Address" class="border border-gray-200 rounded-md px-4 py-3 focus:ring-kerala-green focus:border-kerala-green">
+        </div>
+
+        <input type="text" placeholder="Phone or WhatsApp (optional)" class="border border-gray-200 rounded-md px-4 py-3 w-full mb-4 focus:ring-kerala-green focus:border-kerala-green">
+
+        <select class="border border-gray-200 rounded-md px-4 py-3 w-full mb-4 focus:ring-kerala-green focus:border-kerala-green">
+          <option>Choose a Package</option>
+          <option>Weekend Warrior</option>
+          <option>Week-Long Trail</option>
+          <option>Fortnight Frontier</option>
+          <option>Custom Adventure</option>
+        </select>
+
+        <textarea rows="4" placeholder="Tell us more..." class="border border-gray-200 rounded-md px-4 py-3 w-full mb-6 focus:ring-kerala-green focus:border-kerala-green"></textarea>
+
+        <button type="submit" class="w-full py-3 rounded-lg bg-gradient-to-r from-kerala-gold to-yellow-400 text-kerala-green font-semibold shadow hover:shadow-glow transition">✨ Send My Request</button>
       </form>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- FOOTER -->
   <footer class="bg-gradient-to-b from-deep-emerald via-kerala-green to-black text-white py-10 text-center">
